@@ -1,3 +1,4 @@
+const MOBILE_BREAKPOINT = 860;
 const navToggle = document.querySelector('[data-mobile-toggle]');
 const navMenu = document.querySelector('[data-mobile-menu]');
 if (navToggle && navMenu) {
@@ -35,7 +36,7 @@ document.querySelectorAll('[data-faq-item]').forEach((item) => {
 
 document.querySelectorAll('[data-footer-group]').forEach((group) => {
   const title = group.querySelector('[data-footer-toggle]');
-  if (!title || window.innerWidth > 860) return;
+  if (!title || window.innerWidth > MOBILE_BREAKPOINT) return;
   group.dataset.collapsible = 'true';
   title.addEventListener('click', () => {
     group.classList.toggle('is-open');

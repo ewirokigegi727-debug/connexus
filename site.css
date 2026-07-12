@@ -11,8 +11,11 @@
   --shadow: 0 18px 40px rgba(10, 45, 86, 0.12);
   --radius: 22px;
   --content: 1180px;
+  --breakpoint-tablet: 860px;
 }
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 body {
   margin: 0;
   font-family: "Figtree", Arial, sans-serif;
@@ -128,6 +131,7 @@ img { max-width: 100%; display: block; }
   .hero-grid, .footer-grid, .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-3 { grid-template-columns: 1fr; }
 }
+/* Keep this breakpoint aligned with MOBILE_BREAKPOINT in site.js. */
 @media (max-width: 860px) {
   .menu-toggle { display:inline-flex; }
   .nav-links {
