@@ -1,4 +1,5 @@
 const MOBILE_BREAKPOINT = 860;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const navToggle = document.querySelector('[data-mobile-toggle]');
 const navMenu = document.querySelector('[data-mobile-menu]');
 if (navToggle && navMenu) {
@@ -13,7 +14,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const target = document.querySelector(link.getAttribute('href'));
     if (!target) return;
     event.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
     if (navMenu) {
       navMenu.classList.remove('is-open');
       navToggle?.setAttribute('aria-expanded', 'false');
